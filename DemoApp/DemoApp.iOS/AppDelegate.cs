@@ -22,7 +22,9 @@ namespace DemoApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Mono.Runtime.RemoveSignalHandlers();
             NewRelicAnalyticsProvider.Start();
+            Mono.Runtime.InstallSignalHandlers();
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
